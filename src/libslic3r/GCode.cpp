@@ -2024,6 +2024,8 @@ namespace Skirt {
         // not at the print_z of the interlaced support material layers.
         std::map<unsigned int, std::pair<size_t, size_t>> skirt_loops_per_extruder_out;
         if (print.has_skirt() && ! print.skirt().entities.empty() &&
+            // infinite or high skirt does not make sense for sequential print here
+            //(if it is selected, it's done in the "extrude object-only skirt" in process_layer)
             // Not enough skirt layers printed yet.
             //FIXME infinite or high skirt does not make sense for sequential print!
             (skirt_done.size() < (size_t)print.config().skirt_height.value || print.has_infinite_skirt()) &&
@@ -2402,7 +2404,7 @@ void GCode::process_layer(
 
             const PrintObject *print_object = layers.front().object();
             this->set_origin(unscale(print_object->instances()[single_object_instance_idx].shift));
-            if (this->m_layer != nullptr && this->m_layer->id() < m_config.skirt_height) {
+            if (this->m_layer != nullptr && (this->m_layer->id() < m_config.skirt_height || print.has_infinite_skirt() )) {
                 for (const ExtrusionEntity *ee : print_object->skirt().entities)
                     gcode += this->extrude_entity(*ee, "", m_config.support_material_speed.value);
             }
