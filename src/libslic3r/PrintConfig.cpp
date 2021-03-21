@@ -1363,7 +1363,7 @@ void PrintConfigDef::init_fff_params()
     def->sidetext = L("mm/s");
     def->min = 0;
     def->mode = comExpert;
-    def->set_default_value(new ConfigOptionFloats { 2.2f });
+    def->set_default_value(new ConfigOptionFloats { 2.2 });
 
     def = this->add("filament_minimal_purge_on_wipe_tower", coFloats);
     def->label = L("Minimal purge on wipe tower");
@@ -1374,7 +1374,7 @@ void PrintConfigDef::init_fff_params()
     def->sidetext = L("mm³");
     def->min = 0;
     def->mode = comExpert;
-    def->set_default_value(new ConfigOptionFloats { 15.f });
+    def->set_default_value(new ConfigOptionFloats { 15. });
 
     def = this->add("filament_cooling_final_speed", coFloats);
     def->label = L("Speed of the last cooling move");
@@ -1382,7 +1382,7 @@ void PrintConfigDef::init_fff_params()
     def->sidetext = L("mm/s");
     def->min = 0;
     def->mode = comExpert;
-    def->set_default_value(new ConfigOptionFloats { 3.4f });
+    def->set_default_value(new ConfigOptionFloats { 3.4 });
 
     def = this->add("filament_load_time", coFloats);
     def->label = L("Filament load time");
@@ -1390,7 +1390,7 @@ void PrintConfigDef::init_fff_params()
     def->sidetext = L("s");
     def->min = 0;
     def->mode = comExpert;
-    def->set_default_value(new ConfigOptionFloats { 0.0f });
+    def->set_default_value(new ConfigOptionFloats { 0.0 });
 
     def = this->add("filament_ramming_parameters", coStrings);
     def->label = L("Ramming parameters");
@@ -1405,7 +1405,7 @@ void PrintConfigDef::init_fff_params()
     def->sidetext = L("s");
     def->min = 0;
     def->mode = comExpert;
-    def->set_default_value(new ConfigOptionFloats { 0.0f });
+    def->set_default_value(new ConfigOptionFloats { 0.0 });
 
     def = this->add("filament_diameter", coFloats);
     def->label = L("Diameter");
