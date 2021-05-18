@@ -3,7 +3,7 @@ name: C/C++ CI ubuntu
 on:
   push:
     branches:
-      - CI
+      - 'CI*'
   pull_request:
     branches:
     - '*'

@@ -3,7 +3,7 @@ name: C/C++ CI windows x64
 on:
   push:
     branches:
-      - CI
+      - 'CI*'
   pull_request:
     branches:
     - '*'
